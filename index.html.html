@@ -1,0 +1,2157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRO_VISION - Global Recruitment Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0066CC;
+            --light-blue: #4D94FF;
+            --vibrant-blue: #0080FF;
+            --primary-green: #00C853;
+            --light-green: #69F0AE;
+            --dark-green: #00A844;
+            --white: #FFFFFF;
+            --light-gray: #F5F7FA;
+            --text-dark: #1A1A1A;
+            --text-gray: #6B7280;
+            --border-color: #E5E7EB;
+            --gradient-1: linear-gradient(135deg, var(--primary-blue) 0%, var(--vibrant-blue) 100%);
+            --gradient-2: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+            --shadow-sm: 0 2px 8px rgba(0, 102, 204, 0.1);
+            --shadow-md: 0 4px 16px rgba(0, 102, 204, 0.15);
+            --shadow-lg: 0 8px 32px rgba(0, 102, 204, 0.2);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 0.5rem;
+            background: var(--light-gray);
+            padding: 0.3rem;
+            border-radius: 20px;
+        }
+
+        .lang-btn {
+            padding: 0.4rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--text-gray);
+            cursor: pointer;
+            border-radius: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--gradient-1);
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--primary-blue);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.05) 0%, rgba(0, 200, 83, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 102, 204, 0.1) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 200, 83, 0.1) 0%, transparent 70%);
+            bottom: -50px;
+            left: -50px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: var(--gradient-2);
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-success:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-2);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+        }
+
+        /* Jobs Section */
+        .jobs-filter {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.9rem 1rem 0.9rem 3rem;
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-gray);
+        }
+
+        .filter-select {
+            padding: 0.9rem 1.5rem;
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .job-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .job-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--gradient-1);
+            transition: height 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .job-card:hover::before {
+            height: 100%;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .job-type {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .job-type.full-time {
+            background: rgba(0, 102, 204, 0.1);
+            color: var(--primary-blue);
+        }
+
+        .job-type.part-time {
+            background: rgba(0, 200, 83, 0.1);
+            color: var(--primary-green);
+        }
+
+        .job-type.contract {
+            background: rgba(255, 152, 0, 0.1);
+            color: #FF9800;
+        }
+
+        .job-type.remote {
+            background: rgba(156, 39, 176, 0.1);
+            color: #9C27B0;
+        }
+
+        .job-company {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-location {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .job-description {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .job-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .job-salary {
+            font-weight: 600;
+            color: var(--primary-green);
+        }
+
+        .btn-small {
+            padding: 0.6rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-gray);
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            color: var(--border-color);
+            margin-bottom: 1rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 20px;
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:nth-child(1) .feature-icon {
+            background: rgba(0, 102, 204, 0.1);
+            color: var(--primary-blue);
+        }
+
+        .feature-card:nth-child(2) .feature-icon {
+            background: rgba(0, 200, 83, 0.1);
+            color: var(--primary-green);
+        }
+
+        .feature-card:nth-child(3) .feature-icon {
+            background: rgba(255, 152, 0, 0.1);
+            color: #04dcf5;
+        }
+
+        .feature-card:nth-child(4) .feature-icon {
+            background: rgba(156, 39, 176, 0.1);
+            color: #5feb0f;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: rotateY(360deg);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+        }
+
+        /* Contact Section */
+        .contact-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.9rem;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--light-green);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--gradient-1);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Admin Panel */
+        .admin-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            color: var(--white);
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .admin-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 32px rgba(0, 102, 204, 0.4);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.3s ease;
+            position: relative;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .modal-header h2 {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-gray);
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: var(--text-dark);
+            transform: rotate(90deg);
+        }
+
+        .admin-jobs-list {
+            margin-top: 1.5rem;
+        }
+
+        .admin-job-item {
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .admin-job-item:hover {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .admin-job-info h4 {
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .admin-job-info p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .admin-job-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .icon-btn {
+            width: 35px;
+            height: 35px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-btn.edit {
+            background: rgba(0, 102, 204, 0.1);
+            color: var(--primary-blue);
+        }
+
+        .icon-btn.delete {
+            background: rgba(244, 67, 54, 0.1);
+            color: #F44336;
+        }
+
+        .icon-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow-md);
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--white);
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Success Message */
+        .success-message {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--gradient-2);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+            animation: slideInRight 0.3s ease;
+            z-index: 10001;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+
+    <!-- Header -->
+    <header id="header">
+        <nav class="container">
+            <div class="logo" data-translate="logo">PRO_VISION</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" data-translate="nav_home">Home</a></li>
+                <li><a href="#jobs" data-translate="nav_jobs">Jobs</a></li>
+                <li><a href="#about" data-translate="nav_about">About</a></li>
+                <li><a href="#contact" data-translate="nav_contact">Contact</a></li>
+                <li>
+                    <div class="language-switcher">
+                        <button class="lang-btn active" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="ar">AR</button>
+                        <button class="lang-btn" data-lang="de">DE</button>
+                    </div>
+                </li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+<button id="addJobBtn" class="btn btn-add" style="display:none;">+ Add New Job</button>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 data-translate="hero_title">Find Your Dream Career</h1>
+                <p data-translate="hero_subtitle">Connect with top companies worldwide and unlock endless opportunities for professional growth.</p>
+                <div class="cta-buttons">
+                    <a href="#jobs" class="btn btn-primary"><span data-translate="hero_browse">Browse Jobs</span></a>
+                    <a href="#contact" class="btn btn-secondary"><span data-translate="hero_contact">Contact Us</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section id="jobs">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="jobs_title">Available Positions</h2>
+                <p data-translate="jobs_subtitle">Explore our latest job openings and find the perfect match for your skills and ambitions.</p>
+            </div>
+<div id="jobsContainer"></div>
+
+
+            <div class="jobs-filter">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search jobs..." data-translate-placeholder="search_placeholder">
+                </div>
+                <select class="filter-select" id="typeFilter">
+                    <option value="all" data-translate="filter_all">All Types</option>
+                    <option value="full-time" data-translate="filter_fulltime">Full Time</option>
+                    <option value="part-time" data-translate="filter_parttime">Part Time</option>
+                    <option value="contract" data-translate="filter_contract">Contract</option>
+                    <option value="remote" data-translate="filter_remote">Remote</option>
+                </select>
+            </div>
+
+            <div class="jobs-grid" id="jobsGrid">
+                <!-- Jobs will be populated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="background: var(--light-gray);">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-translate="about_title">Why Choose PRO_VISION</h2>
+                <p data-translate="about_subtitle">We're committed to connecting talented professionals with exceptional opportunities globally.</p>
+            </div>
+
+            <div class="about-content">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 data-translate="feature1_title">Global Network</h3>
+                    <p data-translate="feature1_desc">Access thousands of job opportunities from leading companies around the world.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 data-translate="feature2_title">Trusted Partners</h3>
+                    <p data-translate="feature2_desc">We work with reputable companies committed to professional excellence.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3 data-translate="feature3_title">Expert Guidance</h3>
+                    <p data-translate="feature3_desc">Our team provides personalized support throughout your job search journey.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 data-translate="feature4_title">Fast Process</h3>
+                    <p data-translate="feature4_desc">Quick and efficient application process with timely feedback from employers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<div class="contact-wrapper">
+    <!-- Company Phone -->
+    <p style="font-weight:bold; margin-bottom:15px;">
+        Phone: <a href="tel:+20109 6959966">+20 0109 6959966</a>
+        Phone: <a href="tel:+20122 4991437">+20 0122 4991437</a>
+    </p>
+
+    <form class="contact-form" id="contactForm">
+        <div class="form-group">
+            <label for="name" data-translate="form_name">Name</label>
+            <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email" data-translate="form_email">Email</label>
+            <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone" data-translate="form_phone">Phone</label>
+            <input type="tel" id="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="message" data-translate="form_message">Message</label>
+            <textarea id="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success" style="width: 100%;">
+            <span data-translate="form_submit">Send Message</span>
+        </button>
+    </form>
+</div>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-translate="logo">PRO_VISION</h3>
+                    <p data-translate="footer_desc">Your trusted partner in finding exceptional career opportunities worldwide.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3 data-translate="footer_quick">Quick Links</h3>
+                    <a href="#home" data-translate="nav_home">Home</a>
+                    <a href="#jobs" data-translate="nav_jobs">Jobs</a>
+                    <a href="#about" data-translate="nav_about">About</a>
+                    <a href="#contact" data-translate="nav_contact">Contact</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3 data-translate="footer_contact">Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@provision.com</p>
+                    <p><i class="fas fa-globe"></i> www.provision.com</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 PRO_VISION. <span data-translate="footer_rights">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Button -->
+    <button class="admin-btn" id="adminBtn" title="Admin Panel">
+        <i class="fas fa-cog"></i>
+    </button>
+
+    <!-- Admin Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 data-translate="admin_login">Admin Login</h2>
+                <button class="close-btn" onclick="closeModal('loginModal')">&times;</button>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="adminPassword" data-translate="admin_password">Password</label>
+                    <input type="password" id="adminPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <span data-translate="admin_login_btn">Login</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div class="modal" id="adminModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 data-translate="admin_panel">Admin Panel</h2>
+                <button class="close-btn" onclick="closeModal('adminModal')">&times;</button>
+            </div>
+
+            <button class="btn btn-success" style="width: 100%; margin-bottom: 1rem;" onclick="showAddJobModal()">
+                <span data-translate="admin_add_job">+ Add New Job</span>
+            </button>
+
+            <div class="admin-jobs-list" id="adminJobsList">
+                <!-- Admin jobs list will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Job Modal -->
+    <div class="modal" id="jobFormModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="jobFormTitle" data-translate="admin_add_job">Add New Job</h2>
+                <button class="close-btn" onclick="closeModal('jobFormModal')">&times;</button>
+            </div>
+
+            <form id="jobForm">
+                <input type="hidden" id="jobId">
+                
+                <h3 style="color: var(--primary-blue); margin-bottom: 1rem;">English (EN)</h3>
+                <div class="form-group">
+                    <label for="jobTitleEn">Job Title (EN)</label>
+                    <input type="text" id="jobTitleEn" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobCompanyEn">Company (EN)</label>
+                    <input type="text" id="jobCompanyEn" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobLocationEn">Location (EN)</label>
+                    <input type="text" id="jobLocationEn" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobDescriptionEn">Description (EN)</label>
+                    <textarea id="jobDescriptionEn" required></textarea>
+                </div>
+
+                <h3 style="color: var(--primary-blue); margin: 1.5rem 0 1rem;">العربية (AR)</h3>
+                <div class="form-group">
+                    <label for="jobTitleAr">عنوان الوظيفة (AR)</label>
+                    <input type="text" id="jobTitleAr" dir="rtl" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobCompanyAr">الشركة (AR)</label>
+                    <input type="text" id="jobCompanyAr" dir="rtl" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobLocationAr">الموقع (AR)</label>
+                    <input type="text" id="jobLocationAr" dir="rtl" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobDescriptionAr">الوصف (AR)</label>
+                    <textarea id="jobDescriptionAr" dir="rtl" required></textarea>
+                </div>
+
+                <h3 style="color: var(--primary-blue); margin: 1.5rem 0 1rem;">Deutsch (DE)</h3>
+                <div class="form-group">
+                    <label for="jobTitleDe">Stellentitel (DE)</label>
+                    <input type="text" id="jobTitleDe" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobCompanyDe">Unternehmen (DE)</label>
+                    <input type="text" id="jobCompanyDe" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobLocationDe">Standort (DE)</label>
+                    <input type="text" id="jobLocationDe" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobDescriptionDe">Beschreibung (DE)</label>
+                    <textarea id="jobDescriptionDe" required></textarea>
+                </div>
+
+                <h3 style="color: var(--primary-blue); margin: 1.5rem 0 1rem;">General Info / معلومات عامة</h3>
+                <div class="form-group">
+                    <label for="jobType">Job Type / نوع الوظيفة</label>
+                    <select id="jobType" required>
+                        <option value="full-time">Full Time / دوام كامل</option>
+                        <option value="part-time">Part Time / دوام جزئي</option>
+                        <option value="contract">Contract / عقد</option>
+                        <option value="remote">Remote / عن بعد</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="jobSalary">Salary / الراتب</label>
+                    <input type="text" id="jobSalary" placeholder="e.g., $50,000 - $70,000" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobContactPhone">Contact Phone / رقم التواصل</label>
+                    <input type="tel" id="jobContactPhone" placeholder="+1 (555) 123-4567" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobContactEmail">Contact Email / البريد الإلكتروني</label>
+                    <input type="email" id="jobContactEmail" placeholder="hr@company.com" required>
+                </div>
+                <button type="submit" class="btn btn-success" style="width: 100%;">
+                    <span data-translate="admin_save_job">Save Job</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Application Modal -->
+    <div class="modal" id="applicationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 data-translate="apply_title">Apply for Position</h2>
+                <button class="close-btn" onclick="closeModal('applicationModal')">&times;</button>
+            </div>
+
+            <form id="applicationForm">
+                <input type="hidden" id="applyJobId">
+                <div class="form-group">
+                    <label for="applyName" data-translate="form_name">Full Name</label>
+                    <input type="text" id="applyName" required>
+                </div>
+                <div class="form-group">
+                    <label for="applyEmail" data-translate="form_email">Email</label>
+                    <input type="email" id="applyEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="applyPhone" data-translate="form_phone">Phone</label>
+                    <input type="tel" id="applyPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="applyCoverLetter" data-translate="apply_cover">Cover Letter</label>
+                    <textarea id="applyCoverLetter" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success" style="width: 100%;">
+                    <span data-translate="apply_submit">Submit Application</span>
+                </button>
+            </form>
+        </div>
+    </div>
+    
+
+    <script>
+        // Translations
+        const translations = {
+            en: {
+                logo: "PRO_VISION",
+                nav_home: "Home",
+                nav_jobs: "Jobs",
+                nav_about: "About",
+                nav_contact: "Contact",
+                hero_title: "Find Your Dream Career",
+                hero_subtitle: "Connect with top companies worldwide and unlock endless opportunities for professional growth.",
+                hero_browse: "Browse Jobs",
+                hero_contact: "Contact Us",
+                jobs_title: "Available Positions",
+                jobs_subtitle: "Explore our latest job openings and find the perfect match for your skills and ambitions.",
+                search_placeholder: "Search jobs...",
+                filter_all: "All Types",
+                filter_fulltime: "Full Time",
+                filter_parttime: "Part Time",
+                filter_contract: "Contract",
+                filter_remote: "Remote",
+                about_title: "Why Choose PRO_VISION",
+                about_subtitle: "We're committed to connecting talented professionals with exceptional opportunities globally.",
+                feature1_title: "Global Network",
+                feature1_desc: "Access thousands of job opportunities from leading companies around the world.",
+                feature2_title: "Trusted Partners",
+                feature2_desc: "We work with reputable companies committed to professional excellence.",
+                feature3_title: "Expert Guidance",
+                feature3_desc: "Our team provides personalized support throughout your job search journey.",
+                feature4_title: "Fast Process",
+                feature4_desc: "Quick and efficient application process with timely feedback from employers.",
+                contact_title: "Get In Touch",
+                contact_subtitle: "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+                form_name: "Name",
+                form_email: "Email",
+                form_phone: "Phone",
+                form_message: "Message",
+                form_submit: "Send Message",
+                footer_desc: "Your trusted partner in finding exceptional career opportunities worldwide.",
+                footer_quick: "Quick Links",
+                footer_contact: "Contact Info",
+                footer_rights: "All rights reserved.",
+                admin_login: "Admin Login",
+                admin_password: "Password",
+                admin_login_btn: "Login",
+                admin_panel: "Admin Panel",
+                admin_add_job: "+ Add New Job",
+                job_title: "Job Title",
+                job_company: "Company",
+                job_location: "Location",
+                job_type: "Job Type",
+                job_salary: "Salary",
+                job_description: "Description",
+                admin_save_job: "Save Job",
+                apply_title: "Apply for Position",
+                apply_cover: "Cover Letter",
+                apply_submit: "Submit Application",
+                apply_now: "Apply Now"
+            },
+            ar: {
+                logo: "PRO_VISION",
+                nav_home: "الرئيسية",
+                nav_jobs: "الوظائف",
+                nav_about: "من نحن",
+                nav_contact: "اتصل بنا",
+                hero_title: "ابحث عن وظيفة أحلامك",
+                hero_subtitle: "تواصل مع أفضل الشركات حول العالم وافتح فرصًا لا حدود لها للنمو المهني.",
+                hero_browse: "تصفح الوظائف",
+                hero_contact: "اتصل بنا",
+                jobs_title: "الوظائف المتاحة",
+                jobs_subtitle: "استكشف أحدث الوظائف الشاغرة وابحث عن الوظيفة المثالية لمهاراتك وطموحاتك.",
+                search_placeholder: "ابحث عن وظائف...",
+                filter_all: "جميع الأنواع",
+                filter_fulltime: "دوام كامل",
+                filter_parttime: "دوام جزئي",
+                filter_contract: "عقد",
+                filter_remote: "عن بعد",
+                about_title: "لماذا تختار PRO_VISION",
+                about_subtitle: "نحن ملتزمون بربط المحترفين الموهوبين بفرص استثنائية على مستوى العالم.",
+                feature1_title: "شبكة عالمية",
+                feature1_desc: "الوصول إلى آلاف فرص العمل من الشركات الرائدة حول العالم.",
+                feature2_title: "شركاء موثوقون",
+                feature2_desc: "نعمل مع شركات موثوقة ملتزمة بالتميز المهني.",
+                feature3_title: "إرشاد متخصص",
+                feature3_desc: "يقدم فريقنا دعمًا شخصيًا طوال رحلة البحث عن عمل.",
+                feature4_title: "عملية سريعة",
+                feature4_desc: "عملية تقديم سريعة وفعالة مع ملاحظات فورية من أصحاب العمل.",
+                contact_title: "تواصل معنا",
+                contact_subtitle: "هل لديك أسئلة؟ نود أن نسمع منك. أرسل لنا رسالة وسنرد في أقرب وقت ممكن.",
+                form_name: "الاسم",
+                form_email: "البريد الإلكتروني",
+                form_phone: "الهاتف",
+                form_message: "الرسالة",
+                form_submit: "إرسال الرسالة",
+                footer_desc: "شريكك الموثوق في إيجاد فرص وظيفية استثنائية في جميع أنحاء العالم.",
+                footer_quick: "روابط سريعة",
+                footer_contact: "معلومات الاتصال",
+                footer_rights: "جميع الحقوق محفوظة.",
+                admin_login: "تسجيل دخول المسؤول",
+                admin_password: "كلمة المرور",
+                admin_login_btn: "تسجيل الدخول",
+                admin_panel: "لوحة الإدارة",
+                admin_add_job: "+ إضافة وظيفة جديدة",
+                job_title: "عنوان الوظيفة",
+                job_company: "الشركة",
+                job_location: "الموقع",
+                job_type: "نوع الوظيفة",
+                job_salary: "الراتب",
+                job_description: "الوصف",
+                admin_save_job: "حفظ الوظيفة",
+                apply_title: "التقديم للوظيفة",
+                apply_cover: "خطاب التقديم",
+                apply_submit: "إرسال الطلب",
+                apply_now: "قدم الآن"
+            },
+            de: {
+                logo: "PRO_VISION",
+                nav_home: "Startseite",
+                nav_jobs: "Stellenangebote",
+                nav_about: "Über uns",
+                nav_contact: "Kontakt",
+                hero_title: "Finden Sie Ihre Traumkarriere",
+                hero_subtitle: "Verbinden Sie sich mit Top-Unternehmen weltweit und erschließen Sie endlose Möglichkeiten für berufliches Wachstum.",
+                hero_browse: "Stellenangebote durchsuchen",
+                hero_contact: "Kontaktieren Sie uns",
+                jobs_title: "Verfügbare Positionen",
+                jobs_subtitle: "Entdecken Sie unsere neuesten Stellenangebote und finden Sie die perfekte Übereinstimmung für Ihre Fähigkeiten und Ambitionen.",
+                search_placeholder: "Stellenangebote suchen...",
+                filter_all: "Alle Typen",
+                filter_fulltime: "Vollzeit",
+                filter_parttime: "Teilzeit",
+                filter_contract: "Vertrag",
+                filter_remote: "Fernarbeit",
+                about_title: "Warum PRO_VISION wählen",
+                about_subtitle: "Wir sind bestrebt, talentierte Fachkräfte mit außergewöhnlichen Möglichkeiten weltweit zu verbinden.",
+                feature1_title: "Globales Netzwerk",
+                feature1_desc: "Zugang zu Tausenden von Stellenangeboten von führenden Unternehmen auf der ganzen Welt.",
+                feature2_title: "Vertrauenswürdige Partner",
+                feature2_desc: "Wir arbeiten mit renommierten Unternehmen zusammen, die sich der beruflichen Exzellenz verschrieben haben.",
+                feature3_title: "Expertenberatung",
+                feature3_desc: "Unser Team bietet personalisierte Unterstützung während Ihrer Jobsuche.",
+                feature4_title: "Schneller Prozess",
+                feature4_desc: "Schneller und effizienter Bewerbungsprozess mit zeitnahem Feedback von Arbeitgebern.",
+                contact_title: "Kontaktieren Sie uns",
+                contact_subtitle: "Haben Sie Fragen? Wir würden gerne von Ihnen hören. Senden Sie uns eine Nachricht und wir werden so schnell wie möglich antworten.",
+                form_name: "Name",
+                form_email: "E-Mail",
+                form_phone: "Telefon",
+                form_message: "Nachricht",
+                form_submit: "Nachricht senden",
+                footer_desc: "Ihr vertrauenswürdiger Partner für außergewöhnliche Karrieremöglichkeiten weltweit.",
+                footer_quick: "Schnelllinks",
+                footer_contact: "Kontaktinformationen",
+                footer_rights: "Alle Rechte vorbehalten.",
+                admin_login: "Admin-Anmeldung",
+                admin_password: "Passwort",
+                admin_login_btn: "Anmelden",
+                admin_panel: "Admin-Panel",
+                admin_add_job: "+ Neue Stelle hinzufügen",
+                job_title: "Stellentitel",
+                job_company: "Unternehmen",
+                job_location: "Standort",
+                job_type: "Stellentyp",
+                job_salary: "Gehalt",
+                job_description: "Beschreibung",
+                admin_save_job: "Stelle speichern",
+                apply_title: "Bewerben",
+                apply_cover: "Anschreiben",
+                apply_submit: "Bewerbung einreichen",
+                apply_now: "Jetzt bewerben"
+            }
+        };
+
+        // State
+        let currentLang = 'en';
+        let isAdminLoggedIn = false;
+        // Admin password is stored as SHA-256 hash
+        // Default password: "admin123"
+        // To change password: use browser console and run: hashPassword("your_new_password")
+        const ADMIN_PASSWORD_HASH = '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9';
+        let jobs = [];
+        let editingJobId = null;
+
+        // Password hashing function using SHA-256
+        async function hashPassword(password) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(password);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            console.log('Password hash:', hashHex);
+            return hashHex;
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadJobs();
+            renderJobs();
+            setupEventListeners();
+            checkScroll();
+            
+            // Add sample jobs if none exist
+            if (jobs.length === 0) {
+                addSampleJobs();
+            }
+        });
+
+        // Sample Jobs
+        function addSampleJobs() {
+            const sampleJobs = [
+                {
+                    id: Date.now() + 1,
+                    en: {
+                        title: 'Senior Software Engineer',
+                        company: 'TechCorp Global',
+                        location: 'San Francisco, CA',
+                        description: 'We are seeking an experienced software engineer to join our innovative team. You will work on cutting-edge technologies and help build scalable solutions.'
+                    },
+                    ar: {
+                        title: 'مهندس برمجيات أول',
+                        company: 'تك كورب العالمية',
+                        location: 'سان فرانسيسكو، كاليفورنيا',
+                        description: 'نحن نبحث عن مهندس برمجيات ذو خبرة للانضمام إلى فريقنا المبتكر. ستعمل على أحدث التقنيات وتساعد في بناء حلول قابلة للتوسع.'
+                    },
+                    de: {
+                        title: 'Senior Software-Ingenieur',
+                        company: 'TechCorp Global',
+                        location: 'San Francisco, CA',
+                        description: 'Wir suchen einen erfahrenen Software-Ingenieur für unser innovatives Team. Sie werden mit modernsten Technologien arbeiten und dabei helfen, skalierbare Lösungen aufzubauen.'
+                    },
+                    type: 'full-time',
+                    salary: '$120,000 - $160,000',
+                    contactPhone: '+1 (555) 123-4567',
+                    contactEmail: 'careers@techcorp.com'
+                },
+                {
+                    id: Date.now() + 2,
+                    en: {
+                        title: 'Marketing Manager',
+                        company: 'Digital Solutions Ltd',
+                        location: 'New York, NY',
+                        description: 'Lead our marketing initiatives and develop strategies to expand our market presence. Perfect for creative minds with strong analytical skills.'
+                    },
+                    ar: {
+                        title: 'مدير تسويق',
+                        company: 'ديجيتال سوليوشنز المحدودة',
+                        location: 'نيويورك، نيويورك',
+                        description: 'قيادة مبادرات التسويق وتطوير استراتيجيات لتوسيع تواجدنا في السوق. مثالي للعقول الإبداعية ذات المهارات التحليلية القوية.'
+                    },
+                    de: {
+                        title: 'Marketing-Manager',
+                        company: 'Digital Solutions Ltd',
+                        location: 'New York, NY',
+                        description: 'Leiten Sie unsere Marketinginitiativen und entwickeln Sie Strategien zur Erweiterung unserer Marktpräsenz. Perfekt für kreative Köpfe mit starken analytischen Fähigkeiten.'
+                    },
+                    type: 'full-time',
+                    salary: '$80,000 - $100,000',
+                    contactPhone: '+1 (555) 987-6543',
+                    contactEmail: 'hr@digitalsolutions.com'
+                },
+                {
+                    id: Date.now() + 3,
+                    en: {
+                        title: 'UX/UI Designer',
+                        company: 'Creative Studio',
+                        location: 'Remote',
+                        description: 'Design beautiful and intuitive user experiences for our digital products. Work with a talented team of designers and developers.'
+                    },
+                    ar: {
+                        title: 'مصمم واجهات وتجربة مستخدم',
+                        company: 'كرييتيف ستوديو',
+                        location: 'عن بعد',
+                        description: 'تصميم تجارب مستخدم جميلة وبديهية لمنتجاتنا الرقمية. العمل مع فريق موهوب من المصممين والمطورين.'
+                    },
+                    de: {
+                        title: 'UX/UI-Designer',
+                        company: 'Creative Studio',
+                        location: 'Remote',
+                        description: 'Gestalten Sie schöne und intuitive Benutzererlebnisse für unsere digitalen Produkte. Arbeiten Sie mit einem talentierten Team von Designern und Entwicklern.'
+                    },
+                    type: 'remote',
+                    salary: '$70,000 - $90,000',
+                    contactPhone: '+1 (555) 456-7890',
+                    contactEmail: 'jobs@creativestudio.com'
+                },
+                {
+                    id: Date.now() + 4,
+                    en: {
+                        title: 'Data Analyst',
+                        company: 'Analytics Pro',
+                        location: 'London, UK',
+                        description: 'Analyze complex datasets and provide actionable insights to drive business decisions. Experience with Python and SQL required.'
+                    },
+                    ar: {
+                        title: 'محلل بيانات',
+                        company: 'أناليتكس برو',
+                        location: 'لندن، المملكة المتحدة',
+                        description: 'تحليل مجموعات البيانات المعقدة وتقديم رؤى قابلة للتنفيذ لدفع قرارات العمل. الخبرة في Python و SQL مطلوبة.'
+                    },
+                    de: {
+                        title: 'Datenanalyst',
+                        company: 'Analytics Pro',
+                        location: 'London, Großbritannien',
+                        description: 'Analysieren Sie komplexe Datensätze und liefern Sie umsetzbare Erkenntnisse zur Unterstützung von Geschäftsentscheidungen. Erfahrung mit Python und SQL erforderlich.'
+                    },
+                    type: 'contract',
+                    salary: '$60,000 - $80,000',
+                    contactPhone: '+44 20 7123 4567',
+                    contactEmail: 'recruit@analyticspro.co.uk'
+                }
+            ];
+            
+            jobs = sampleJobs;
+            saveJobs();
+            renderJobs();
+        }
+
+        // Event Listeners
+        function setupEventListeners() {
+            // Language switcher
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => switchLanguage(btn.dataset.lang));
+            });
+
+            // Mobile menu
+            document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
+
+            // Scroll effect
+            window.addEventListener('scroll', checkScroll);
+
+            // Smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        closeMobileMenu();
+                    }
+                });
+            });
+
+            // Job filters
+            document.getElementById('searchInput').addEventListener('input', filterJobs);
+            document.getElementById('typeFilter').addEventListener('change', filterJobs);
+
+            // Admin button
+            document.getElementById('adminBtn').addEventListener('click', () => {
+                if (isAdminLoggedIn) {
+                    openModal('adminModal');
+                    renderAdminJobs();
+                } else {
+                    openModal('loginModal');
+                }
+            });
+
+            // Forms
+            document.getElementById('loginForm').addEventListener('submit', handleAdminLogin);
+            document.getElementById('jobForm').addEventListener('submit', handleJobSubmit);
+            document.getElementById('contactForm').addEventListener('submit', handleContactSubmit);
+            document.getElementById('applicationForm').addEventListener('submit', handleApplicationSubmit);
+        }
+
+        // Language Switching
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            // Update RTL for Arabic
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.dataset.translate;
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            // Update placeholders
+            document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
+                const key = element.dataset.translatePlaceholder;
+                if (translations[lang][key]) {
+                    element.placeholder = translations[lang][key];
+                }
+            });
+
+            // Re-render jobs to update button text
+            renderJobs();
+        }
+
+        // Mobile Menu
+        function toggleMobileMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('navLinks').classList.remove('active');
+        }
+
+        // Scroll Effects
+        function checkScroll() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // Modal Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        // Jobs Management
+        function loadJobs() {
+            const saved = localStorage.getItem('provision_jobs');
+            if (saved) {
+                jobs = JSON.parse(saved);
+            }
+        }
+
+        function saveJobs() {
+            localStorage.setItem('provision_jobs', JSON.stringify(jobs));
+        }
+
+        function renderJobs() {
+            const grid = document.getElementById('jobsGrid');
+            const filteredJobs = getFilteredJobs();
+
+            if (filteredJobs.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>No jobs found</h3>
+                        <p>Try adjusting your search criteria</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filteredJobs.map(job => {
+                const jobData = job[currentLang] || job.en || job.ar || job.de || {};
+                const contactInfo = job.contactPhone || job.contactEmail ? `
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                        ${job.contactPhone ? `<p style="color: var(--text-gray); font-size: 0.9rem; margin-bottom: 0.3rem;"><i class="fas fa-phone" style="color: var(--primary-blue);"></i> ${job.contactPhone}</p>` : ''}
+                        ${job.contactEmail ? `<p style="color: var(--text-gray); font-size: 0.9rem;"><i class="fas fa-envelope" style="color: var(--primary-blue);"></i> ${job.contactEmail}</p>` : ''}
+                    </div>
+                ` : '';
+                return `
+                    <div class="job-card">
+                        <div class="job-header">
+                            <div>
+                                <h3 class="job-title">${jobData.title}</h3>
+                                <p class="job-company">${jobData.company}</p>
+                            </div>
+                            <span class="job-type ${job.type}">${formatJobType(job.type)}</span>
+                        </div>
+                        <p class="job-location"><i class="fas fa-map-marker-alt"></i> ${jobData.location}</p>
+                        <p class="job-description">${jobData.description}</p>
+                        ${contactInfo}
+                        <div class="job-footer">
+                            <span class="job-salary">${job.salary}</span>
+                            <button class="btn btn-primary btn-small" onclick="applyForJob(${job.id})">
+                                <span>${translations[currentLang].apply_now}</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function getFilteredJobs() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const typeFilter = document.getElementById('typeFilter').value;
+
+            return jobs.filter(job => {
+                const jobData = job[currentLang] || job.en || {};
+                const matchesSearch = (jobData.title || '').toLowerCase().includes(search) ||
+                                    (jobData.company || '').toLowerCase().includes(search) ||
+                                    (jobData.description || '').toLowerCase().includes(search);
+                const matchesType = typeFilter === 'all' || job.type === typeFilter;
+                return matchesSearch && matchesType;
+            });
+        }
+
+        function filterJobs() {
+            renderJobs();
+        }
+
+        function formatJobType(type) {
+            const types = {
+                'full-time': translations[currentLang].filter_fulltime,
+                'part-time': translations[currentLang].filter_parttime,
+                'contract': translations[currentLang].filter_contract,
+                'remote': translations[currentLang].filter_remote
+            };
+            return types[type] || type;
+        }
+
+        function applyForJob(jobId) {
+            document.getElementById('applyJobId').value = jobId;
+            openModal('applicationModal');
+        }
+
+        // Admin Functions
+        async function handleAdminLogin(e) {
+            e.preventDefault();
+            const password = document.getElementById('adminPassword').value;
+            const passwordHash = await hashPassword(password);
+
+            if (passwordHash === ADMIN_PASSWORD_HASH) {
+                isAdminLoggedIn = true;
+                closeModal('loginModal');
+                openModal('adminModal');
+                renderAdminJobs();
+                document.getElementById('adminPassword').value = '';
+                showSuccess('Login successful!');
+            } else {
+                alert('Incorrect password!');
+            }
+        }
+
+        function renderAdminJobs() {
+            const list = document.getElementById('adminJobsList');
+            
+            if (jobs.length === 0) {
+                list.innerHTML = '<p style="text-align: center; color: var(--text-gray);">No jobs posted yet.</p>';
+                return;
+            }
+
+            list.innerHTML = jobs.map(job => `
+                <div class="admin-job-item">
+                    <div class="admin-job-info">
+                        <h4>${job.title}</h4>
+                        <p>${job.company} - ${job.location}</p>
+                    </div>
+                    <div class="admin-job-actions">
+                        <button class="icon-btn edit" onclick="editJob(${job.id})">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="icon-btn delete" onclick="deleteJob(${job.id})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function showAddJobModal() {
+            editingJobId = null;
+            document.getElementById('jobFormTitle').textContent = translations[currentLang].admin_add_job;
+            document.getElementById('jobForm').reset();
+            document.getElementById('jobId').value = '';
+            closeModal('adminModal');
+            openModal('jobFormModal');
+        }
+
+        function editJob(id) {
+            const job = jobs.find(j => j.id === id);
+            if (!job) return;
+
+            editingJobId = id;
+            document.getElementById('jobFormTitle').textContent = 'Edit Job / تعديل الوظيفة';
+            document.getElementById('jobId').value = id;
+            
+            document.getElementById('jobTitleEn').value = job.en?.title || '';
+            document.getElementById('jobCompanyEn').value = job.en?.company || '';
+            document.getElementById('jobLocationEn').value = job.en?.location || '';
+            document.getElementById('jobDescriptionEn').value = job.en?.description || '';
+            
+            document.getElementById('jobTitleAr').value = job.ar?.title || '';
+            document.getElementById('jobCompanyAr').value = job.ar?.company || '';
+            document.getElementById('jobLocationAr').value = job.ar?.location || '';
+            document.getElementById('jobDescriptionAr').value = job.ar?.description || '';
+            
+            document.getElementById('jobTitleDe').value = job.de?.title || '';
+            document.getElementById('jobCompanyDe').value = job.de?.company || '';
+            document.getElementById('jobLocationDe').value = job.de?.location || '';
+            document.getElementById('jobDescriptionDe').value = job.de?.description || '';
+            
+            document.getElementById('jobType').value = job.type;
+            document.getElementById('jobSalary').value = job.salary;
+            document.getElementById('jobContactPhone').value = job.contactPhone || '';
+            document.getElementById('jobContactEmail').value = job.contactEmail || '';
+            
+            closeModal('adminModal');
+            openModal('jobFormModal');
+        }
+
+        function deleteJob(id) {
+            if (confirm('Are you sure you want to delete this job?')) {
+                jobs = jobs.filter(j => j.id !== id);
+                saveJobs();
+                renderJobs();
+                renderAdminJobs();
+                showSuccess('Job deleted successfully!');
+            }
+        }
+
+        function handleJobSubmit(e) {
+            e.preventDefault();
+
+            const jobData = {
+                id: editingJobId || Date.now(),
+                en: {
+                    title: document.getElementById('jobTitleEn').value,
+                    company: document.getElementById('jobCompanyEn').value,
+                    location: document.getElementById('jobLocationEn').value,
+                    description: document.getElementById('jobDescriptionEn').value
+                },
+                ar: {
+                    title: document.getElementById('jobTitleAr').value,
+                    company: document.getElementById('jobCompanyAr').value,
+                    location: document.getElementById('jobLocationAr').value,
+                    description: document.getElementById('jobDescriptionAr').value
+                },
+                de: {
+                    title: document.getElementById('jobTitleDe').value,
+                    company: document.getElementById('jobCompanyDe').value,
+                    location: document.getElementById('jobLocationDe').value,
+                    description: document.getElementById('jobDescriptionDe').value
+                },
+                type: document.getElementById('jobType').value,
+                salary: document.getElementById('jobSalary').value,
+                contactPhone: document.getElementById('jobContactPhone').value,
+                contactEmail: document.getElementById('jobContactEmail').value
+            };
+
+            if (editingJobId) {
+                const index = jobs.findIndex(j => j.id === editingJobId);
+                jobs[index] = jobData;
+            } else {
+                jobs.unshift(jobData);
+            }
+
+            saveJobs();
+            renderJobs();
+            closeModal('jobFormModal');
+            openModal('adminModal');
+            renderAdminJobs();
+            showSuccess(editingJobId ? 'Job updated successfully!' : 'Job added successfully!');
+        }
+
+        // Form Submissions
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value
+            };
+
+            console.log('Contact Form:', formData);
+            
+            document.getElementById('contactForm').reset();
+            showSuccess('Message sent successfully! We will contact you soon.');
+        }
+
+        function handleApplicationSubmit(e) {
+            e.preventDefault();
+            
+            const jobId = parseInt(document.getElementById('applyJobId').value);
+            const job = jobs.find(j => j.id === jobId);
+            
+            const applicationData = {
+                jobId: jobId,
+                jobTitle: job ? job.title : 'Unknown',
+                name: document.getElementById('applyName').value,
+                email: document.getElementById('applyEmail').value,
+                phone: document.getElementById('applyPhone').value,
+                coverLetter: document.getElementById('applyCoverLetter').value,
+                date: new Date().toISOString()
+            };
+
+            console.log('Application:', applicationData);
+            
+            document.getElementById('applicationForm').reset();
+            closeModal('applicationModal');
+            showSuccess('Application submitted successfully! We will review it and get back to you soon.');
+        }
+
+        // Success Message
+        function showSuccess(message) {
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success-message';
+            successDiv.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+            document.body.appendChild(successDiv);
+
+            setTimeout(() => {
+                successDiv.remove();
+            }, 3000);
+        }
+
+        // Close modals on outside click
+        window.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal')) {
+                e.target.classList.remove('active');
+            }
+        });
+    </script>
+
+
+
+
+
+<div id="adminSection">
+  <select id="langSelect">
+    <option value="ar">عربي</option>
+    <option value="en">English</option>
+    <option value="de">Deutsch</option>
+  </select>
+
+  <button id="adminLoginBtn">تسجيل دخول للمدير</button>
+
+  <div id="passwordDiv" style="display:none; margin-top:10px;">
+    <input type="password" id="adminPasswordInput" placeholder="ادخل كلمة السر للمدير">
+    <button id="adminPasswordBtn">دخول</button>
+  </div>
+
+  <div id="adminPanel" style="display:none; margin-top:20px; background:#fff; padding:15px; border-radius:8px;">
+    <h3 id="adminTitle">لوحة المدير</h3>
+
+    <div id="jobsContainer" style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:15px;"></div>
+
+    <input type="text" id="jobInputAr" placeholder="اكتب اسم الوظيفة بالعربي">
+    <input type="text" id="jobInputEn" placeholder="اكتب اسم الوظيفة بالإنجليزي">
+    <input type="text" id="jobInputDe" placeholder="اكتب اسم الوظيفة بالألماني">
+    <button id="addJobBtn">إضافة وظيفة</button>
+
+    <br><br>
+    <button id="logoutBtn">تسجيل خروج</button>
+  </div>
+</div>
+
+<script>
+const ADMIN_PASSWORD = "1234";
+
+// عناصر الصفحة
+const langSelect = document.getElementById("langSelect");
+const adminLoginBtn = document.getElementById("adminLoginBtn");
+const passwordDiv = document.getElementById("passwordDiv");
+const adminPasswordInput = document.getElementById("adminPasswordInput");
+const adminPasswordBtn = document.getElementById("adminPasswordBtn");
+const adminPanel = document.getElementById("adminPanel");
+const logoutBtn = document.getElementById("logoutBtn");
+
+const jobInputAr = document.getElementById("jobInputAr");
+const jobInputEn = document.getElementById("jobInputEn");
+const jobInputDe = document.getElementById("jobInputDe");
+const addJobBtn = document.getElementById("addJobBtn");
+const jobsContainer = document.getElementById("jobsContainer");
+
+const adminTranslations = {
+  ar: { adminLoginBtn: "تسجيل دخول للمدير", adminTitle: "لوحة المدير", addJobBtn: "إضافة وظيفة", logoutBtn: "تسجيل خروج", passwordPlaceholder: "ادخل كلمة السر للمدير", passwordBtn: "دخول", wrongPassword: "كلمة السر غلط 😅" },
+  en: { adminLoginBtn: "Admin Login", adminTitle: "Admin Panel", addJobBtn: "Add Job", logoutBtn: "Logout", passwordPlaceholder: "Enter admin password", passwordBtn: "Login", wrongPassword: "Wrong password 😅" },
+  de: { adminLoginBtn: "Admin Anmeldung", adminTitle: "Admin Bereich", addJobBtn: "Job hinzufügen", logoutBtn: "Abmelden", passwordPlaceholder: "Admin-Passwort eingeben", passwordBtn: "Login", wrongPassword: "Falsches Passwort 😅" }
+};
+
+// تحديث النصوص حسب اللغة (لا تظهر لوحة المدير تلقائيًا)
+function updateTexts(lang) {
+  const t = adminTranslations[lang];
+  adminLoginBtn.textContent = t.adminLoginBtn;
+  adminTitle.textContent = t.adminTitle;
+  addJobBtn.textContent = t.addJobBtn;
+  logoutBtn.textContent = t.logoutBtn;
+  adminPasswordInput.placeholder = t.passwordPlaceholder;
+  adminPasswordBtn.textContent = t.passwordBtn;
+
+  // تحديث كل الوظائف الموجودة
+  jobsContainer.querySelectorAll("div").forEach(div => {
+    const jobText = div.getAttribute("data-job-" + lang);
+    if(jobText) div.textContent = jobText;
+  });
+}
+
+langSelect.addEventListener("change", () => updateTexts(langSelect.value));
+
+adminLoginBtn.addEventListener("click", () => {
+  passwordDiv.style.display = "block";
+  adminPasswordInput.focus();
+});
+
+adminPasswordBtn.addEventListener("click", () => {
+  const t = adminTranslations[langSelect.value];
+  if(adminPasswordInput.value === ADMIN_PASSWORD){
+    adminPanel.style.display = "block";
+    passwordDiv.style.display = "none";
+    adminLoginBtn.style.display = "none";
+    updateTexts(langSelect.value);
+  } else {
+    alert(t.wrongPassword);
+  }
+});
+
+addJobBtn.addEventListener("click", () => {
+  const jobAr = jobInputAr.value.trim();
+  const jobEn = jobInputEn.value.trim();
+  const jobDe = jobInputDe.value.trim();
+  if(!jobAr && !jobEn && !jobDe) return;
+
+  const jobDiv = document.createElement("div");
+  jobDiv.setAttribute("data-job-ar", jobAr || jobEn || jobDe);
+  jobDiv.setAttribute("data-job-en", jobEn || jobAr || jobDe);
+  jobDiv.setAttribute("data-job-de", jobDe || jobAr || jobEn);
+
+  // عرض النص حسب اللغة الحالية مباشرة
+  jobDiv.textContent = jobDiv.getAttribute("data-job-" + langSelect.value);
+  jobsContainer.appendChild(jobDiv);
+
+  jobInputAr.value = "";
+  jobInputEn.value = "";
+  jobInputDe.value = "";
+});
+
+logoutBtn.addEventListener("click", () => {
+  adminPanel.style.display = "none";
+  adminLoginBtn.style.display = "inline-block";
+  passwordDiv.style.display = "none";
+  adminPasswordInput.value = "";
+  jobsContainer.innerHTML = "";
+});
+
+// تهيئة النصوص عند التحميل
+updateTexts(langSelect.value);
+</script>
+
+    
+   
+    
+</body>
+</html>
